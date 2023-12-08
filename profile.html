@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Firebase tutorial from Yashwant Pathak</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <link rel="stylesheet" href="profile.css">
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1 class="brand"><span>Code With D's</span> Profile</h1>
+
+    
+    <div class="wrapper">
+      <div class="company-info">
+       
+        <div class="profile-pic-div">
+          <img src="image.jpg" id="photo">
+          <input type="file" id="file">
+          <label for="file" id="uploadBtn">Choose Photo</label>
+        </div>
+       
+      </div>
+      <div class="contact" >
+        <h3>Profile</h3>
+        <form id="contactForm">
+          <p>
+            <label>Full Name</label>
+            <input type="text" name="name" id="name" required>
+          </p>
+       
+          <p>
+            <label>Email Address</label>
+            <input type="email" name="email" id="email" required>
+          </p>
+          <p>
+            <label>Phone Number</label>
+            <input type="text" name="phone" id="phone">
+          </p>
+          <p class="full">
+            <label>Enerolment Number</label>
+            <input type="text" name="enumber" id="roll">
+          </p>
+         
+            <div class="rate">
+              <input type="radio" id="star5" name="rate" value="5" />
+              <label for="star5" title="text">5 stars</label>
+              <input type="radio" id="star4" name="rate" value="4" />
+              <label for="star4" title="text">4 stars</label>
+              <input type="radio" id="star3" name="rate" value="3" />
+              <label for="star3" title="text">3 stars</label>
+              <input type="radio" id="star2" name="rate" value="2" />
+              <label for="star2" title="text">2 stars</label>
+              <input type="radio" id="star1" name="rate" value="1" />
+              <label for="star1" title="text">1 star</label>
+            </div><br>
+          
+         
+            <div class="info">
+              <h3><b>NOTE:</b></h3>
+              <h5>
+                -> To Read,Update Or Delete Data Enter Your Enerolment Number
+                -> When You Update Your Data Please Enter Email Again
+              </h5>
+            </div>
+            <div class="buttons">
+              <button id="insert">Insert</button>
+              <button id="read">Read</button>
+              <button id="update">Update</button>
+              <button id="delete">Delete</button>
+            </div>
+      
+         
+        </form>
+      </div>
+    </div>
+  
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase.js"></script>
+  <script src="firebaseConfig.js"></script>
+  <script src="profile.js"></script>
+  <script src="firebasedata.js"></script>
+</body>
+</html>

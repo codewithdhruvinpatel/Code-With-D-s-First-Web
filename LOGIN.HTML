@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title> Login</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/login.css">
+                
+      
+                        
+    </head>
+    <body >
+        <div class="nav">
+            <div class="image">
+              <img src="/PNG/logo.png">
+            </div>
+            <div class="text">
+              <h1>CODE WITH D'S</h1>
+            </div>
+          </div>
+          <div class="text2">
+            <br>
+            <h3 align="center">GET STARTED NOW WITH CODING</h3>
+          </div>
+        <section class="container forms">
+            <div class="form login">
+                <div class="form-content">
+                    <header>Login</header>
+                    <form action="/Main Page/ui.html" >
+                        <div class="field input-field">
+                           
+                            <input  type="email" placeholder="Email" class="input" name="login_email" id="login_email"  required>
+                            <br>
+                            <br>
+                        </div>
+
+                        <div class="field input-field">
+                            
+                            <input type="password" placeholder="Password" class="password"
+
+                            name="login_password" id="login_password"
+                            required>
+                            <i class='bx bx-hide eye-icon'></i>
+                            <br>
+                            <br>
+                        </div>
+
+                       
+                        <div class="form-link">
+                            <a href="#" class="forgot-pass">Forgot password?</a>
+                        </div>
+                        <div class="field button-field">
+                         <button style="float: left;" id="login" class="login" name="login">LOGIN</button>
+                            
+                         </div>
+                         <div class="form-link">
+                            <span>Don't have an account? <a href="" class="link signup-link">Signup</a></span>
+                        </div>
+                    </form>
+                </div>
+
+                
+            </div>
+
+            <!-- Signup Form -->
+
+            <div class="form signup">
+                <div class="form-content">
+                    <header>Signup</header>
+                    <form action="#">
+                        <div class="field input-field">
+                            <input type="email" placeholder="Email" class="input" name="email" id="email" required>
+                        </div>
+
+                        <div class="field input-field">
+                            <input type="password" placeholder="Create password" class="password" name="password" id="password" required>
+                        </div>
+
+                        <div class="field input-field">
+                            <input type="password" placeholder="Confirm password" class="password" required>                           
+                             <i class='bx bx-hide eye-icon'></i>
+                        </div>
+
+                        <div class="field button-field">
+                            <button style="float: left;" id="signup">SIGNUP</button>
+                             
+                          </div>
+                    </form>
+
+                    <div class="form-link">
+                        <span>Already have an account? <a href="#" class="link login-link">Login</a></span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- JavaScript -->
+        <script src="/LOGIN.JS"></script>
+    </body>
+<!--FIRE BASE CODE -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCdAusfhCOiAQvnykQ434qU7cMCdMCdY-k",
+          authDomain: "code-with-d-s-web.firebaseapp.com",
+          projectId: "code-with-d-s-web",
+          storageBucket: "code-with-d-s-web.appspot.com",
+          messagingSenderId: "681960535146",
+          appId: "1:681960535146:web:e858a653df947d1a974613",
+          measurementId: "G-WPXQMZDH02"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+            
+
+        const auth = getAuth();
+	  console.log(app);
+
+	  
+
+	  //----- New Registration code start	  
+	  document.getElementById("signup").addEventListener("click", function() {
+		  var email =  document.getElementById("email").value;
+		  var password = document.getElementById("password").value;
+		  //For new registration
+		  createUserWithEmailAndPassword(auth, email, password)
+		  .then((userCredential) => {
+		    // Signed in 
+		    const user = userCredential.user;
+		    console.log(user);
+		    alert("Registration successfully!!");
+		    // ...
+		  })
+		  .catch((error) => {
+		    const errorCode = error.code;
+		    const errorMessage = error.message;
+		    // ..
+		    console.log(errorMessage);
+		    alert(error);
+		  });		  		  
+	  });
+	  //----- End
+
+	  //----- Login code start	  
+	  document.getElementById("login").addEventListener("click", function() {
+		  var email =  document.getElementById("login_email").value;
+		  var password = document.getElementById("login_password").value;
+
+		  signInWithEmailAndPassword(auth, email, password)
+		  .then((userCredential) => {
+		    // Signed in 
+		    const user = userCredential.user;
+		    console.log(user);
+		    alert(user.email+" Login successfully!!!");
+		    document.getElementById('logout').style.display = 'block';
+		    // ...
+		  })
+		  .catch((error) => {
+		    const errorCode = error.code;
+		    const errorMessage = error.message;
+		    console.log(errorMessage);
+		    alert(errorMessage);
+		  });		  		  
+	  });
+	  //----- End
+
+	
+
+      </script>
+
+</html>
